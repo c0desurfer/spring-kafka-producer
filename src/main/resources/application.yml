@@ -10,19 +10,9 @@ spring:
     producer:
       acks: all
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties:
         enable.idempotence: false
-    consumer:
-      key-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      group-id: c0desurfer
-      properties:
-        spring:
-          json:
-            trusted:
-              packages: ch.raciborski.kafka
-      enable-auto-commit: false
     ssl:
       trust-store-location: file://${TRUSTSTORE_LOCATION}
       trust-store-password: ${TRUSTSTORE_PASSWORD}
